@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Energy System Sizing App</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1b5e20">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+
+<header>
+    <h1>Solar Energy System Sizing App</h1>
+    <p>Estimate the solar panels, batteries, and inverter required for your home.</p>
+</header>
+
+<main class="app-container">
+
+    <h2>Add Household Appliance</h2>
+
+    <label for="applianceName">Appliance Name:</label><br>
+    <input type="text" id="applianceName" placeholder="Example: Fan"><br><br>
+
+    <label for="power">Power Rating (Watts):</label><br>
+    <input type="number" id="power" placeholder="Example: 60"><br><br>
+
+    <label for="quantity">Quantity:</label><br>
+    <input type="number" id="quantity" placeholder="Example: 2"><br><br>
+
+    <label for="hours">Hours Used Per Day:</label><br>
+    <input type="number" id="hours" placeholder="Example: 8"><br><br>
+
+    <button type="button" onclick="addAppliance()">Add Appliance</button>
+
+    <h2>Appliance List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Appliance</th>
+                <th>Power (W)</th>
+                <th>Quantity</th>
+                <th>Hours/Day</th>
+                <th>Daily Energy (Wh)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="applianceList"></tbody>
+    </table>
+
+    <h2 id="totalLoad">Total Connected Load: 0 W</h2>
+    <h2 id="totalEnergy">Total Daily Energy: 0 Wh</h2>
+
+    <hr>
+
+    <h2>Solar System Parameters</h2>
+
+    <label for="sunHours">Peak Sun Hours Per Day:</label><br>
+    <input type="number" id="sunHours" value="5"><br><br>
+
+    <label for="panelRating">Solar Panel Rating (Watts):</label><br>
+    <input type="number" id="panelRating" value="400"><br><br>
+
+    <label for="batteryVoltage">Battery Voltage:</label><br>
+    <input type="number" id="batteryVoltage" value="24"><br><br>
+
+    <label for="batteryRating">Battery Capacity (Ah):</label><br>
+    <input type="number" id="batteryRating" value="200"><br><br>
+
+    <button type="button" onclick="calculateSolar()">Calculate Solar System</button>
+    <button type="button" onclick="resetApp()">Reset All</button>
+
+    <h2>Solar System Recommendation</h2>
+    <div id="solarResult">Enter appliances and click "Calculate Solar System".</div>
+
+    <p class="disclaimer">
+        Note: These results are estimates based on simplified assumptions
+        (see the "Solar System Parameters" section). Actual solar
+        installations should be verified by a professional site assessment.
+    </p>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
